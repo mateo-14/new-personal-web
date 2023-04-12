@@ -1,5 +1,6 @@
 ---
-// import '../styles/style.css';
+import SectionTitle from '../components/SectionTitle.astro'
+import Text from '../components/Text.astro'
 ---
 
 <html lang="en">
@@ -43,12 +44,62 @@
       </div>
 
       <nav class="flex gap-x-4 text-lg mt-3">
-        <a href="" class="">Sobre mí</a>
-        <a href="" class="">Tecnologías</a>
-        <a href="" class="">Proyectos</a>
+        <a href="" class="hover:opacity-70 transition">Sobre mí</a>
+        <a href="" class="hover:opacity-70 transition">Tecnologías</a>
+        <a href="" class="hover:opacity-70 transition">Proyectos</a>
       </nav>
     </header>
-    <h1>Astro</h1>
+    <main class="container mx-auto grid gap-y-10 mt-12">
+      <section>
+        <SectionTitle>Sobre mí 🧑🏻‍💻</SectionTitle>
+        <Text>
+          Hola 👋🏻, mi nombre es Mateo Ledesma, tengo 22 años y actualmente trabajo como Frontend
+          Developer a tiempo completo (Full Time). Soy desarrollador full stack desde el año 2019 y
+          comencé a aprender a programar de manera autodidacta en el año 2015. Desde entonces, he
+          estado enfocado en perfeccionar mis habilidades y conocimientos en el campo de la
+          programación, lo que me ha permitido crecer y evolucionar como profesional. Me siento
+          afortunado de poder trabajar en un campo que amo, y estoy siempre buscando nuevas
+          oportunidades para aprender y crecer.
+        </Text>
+      </section>
+      <section>
+        <SectionTitle>Experiencia 💼</SectionTitle>
+        <ul class="list-disc pl-9 text-lg">
+          <li>Frontend Developer en GreenFlame (jul. 2022 - actualidad)</li>
+          <li>
+            Aceleración Full Stack JavaScript (React + Node.js + Scrum + Git) en Alkemy (dic. 2021 -
+            ene. 2022)
+          </li>
+          <li>Desarrollador Web Freelance (2020 - 2021)</li>
+        </ul>
+      </section>
+      <section>
+        <SectionTitle>Tecnologías 💻</SectionTitle>
+        <ul class="list-disc pl-9 text-lg">
+          <li>JavaScript</li>
+          <li>TypeScript</li>
+          <li>React</li>
+          <li>Next.js</li>
+          <li>Node.js</li>
+          <li>HTML y CSS</li>
+          <li>C#</li>
+          <li>Go</li>
+          <li>ASP.NET</li>
+        </ul>
+      </section>
+      <section>
+        <SectionTitle>Idiomas 🗣️</SectionTitle>
+        <ul class="list-disc pl-9 text-lg">
+          <li>Español: Nativo</li>
+          <li>Inglés: A2</li>
+        </ul>
+      </section>
+    </main>
+    <footer class="mt-14 py-8 flex justify-center items-center gap-x-5 text-lg">
+        <a href="" class="hover:opacity-70 transition">Linkedin</a>
+        <a href="" class="hover:opacity-70 transition">Github</a>
+        <a href="" class="hover:opacity-70 transition">Contacto</a>
+    </footer>
   </body>
 </html>
 
