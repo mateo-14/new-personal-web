@@ -8,10 +8,11 @@ module.exports = {
 		container: {
       padding: {
         DEFAULT: '1rem',
-        sm: '2rem',
-        lg: '4rem',
-        xl: '10rem',
-        '2xl': '18rem',
+				sm: '1rem',
+				md: '1rem',
+				lg: '8rem',
+				xl: '18rem',
+				'2xl': '20rem',
       },
     },
 		fontFamily: {
@@ -19,4 +20,5 @@ module.exports = {
 		},
 	},
 	plugins: [],
+	darkMode: 'class'
 }

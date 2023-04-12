@@ -1,9 +1,30 @@
 ---
 import SectionTitle from '../components/SectionTitle.astro'
 import Text from '../components/Text.astro'
+import Icon, { icon } from '../components/Icon.astro'
+import { projects } from '../projects.json'
+import Project from '../components/Project.astro'
+
+const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
+  {
+    name: 'Github',
+    url: 'https://github.com/mateo-14',
+    icon: 'github'
+  },
+  {
+    name: 'Linkedin',
+    url: 'https://linkedin.com/in/mateo-ledesma',
+    icon: 'linkedin'
+  },
+  {
+    name: 'Contacto',
+    url: 'mailto:mateo.14.ledesma@gmail.com',
+    icon: 'mail'
+  }
+]
 ---
 
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -11,46 +32,37 @@ import Text from '../components/Text.astro'
     <meta name="generator" content={Astro.generator} />
     <title>Mateo Ledesma - Full Stack Developer</title>
   </head>
-  <body class="bg-neutral-900 text-white">
-    <header class="container mx-auto py-2.5">
+  <body class="dark:bg-gray-900 dark:text-white text-neutral-900">
+    <header class="container mx-auto py-4">
       <div class="flex justify-between items-center">
         <div>
           <h1 class="text-2xl font-bold">Mateo Ledesma</h1>
-          <h2 class="text-neutral-200">Full Stack Developer</h2>
+          <h2 class="dark:text-gray-400 font-bold">Full Stack Developer</h2>
         </div>
         <div class="flex gap-x-6">
-          <a href="" class="hover:scale-125 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6"
-              ><path
-                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                fill="currentColor"></path></svg
-            >
-          </a>
-          <a href="" class="hover:scale-125 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6"
-              ><path
-                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-                fill="currentColor"></path></svg
-            >
-          </a>
-          <a href="" class="hover:scale-125 transition">
-            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
-              <path
-                d="M10 10.5942L0.0125 2.5H19.9875L10 10.5942ZM10 12.7392L0 4.635V17.5H20V4.635L10 12.7392Z"
-                fill="currentColor"></path>
-            </svg>
-          </a>
+          {
+            ExternalLinks.map(link => (
+              <a href={link.url} class="hover:scale-125 hover:transition" target="_blank">
+                <Icon icon={link.icon} />
+              </a>
+            ))
+          }
+          <button id="toggle-theme" class="hover:scale-125 hover:transition relative w-6 h-6">
+            <Icon icon="sun" className="sun absolute top-0" />
+            <Icon icon="moon" className="moon absolute top-0" />
+          </button>
         </div>
       </div>
 
-      <nav class="flex gap-x-4 text-lg mt-3">
-        <a href="" class="hover:opacity-70 transition">Sobre mí</a>
-        <a href="" class="hover:opacity-70 transition">Tecnologías</a>
-        <a href="" class="hover:opacity-70 transition">Proyectos</a>
+      <nav class="flex gap-x-5 text-lg mt-3 flex-wrap font-bold">
+        <a href="#about" class="hover:opacity-70 hover:transition">Sobre mí</a>
+        <a href="#skills" class="hover:opacity-70 hover:transition">Tecnologías</a>
+        <a href="#projects" class="hover:opacity-70 hover:transition">Proyectos</a>
+        <a href="/Mateo Ledesma - Resume.pdf" download class="hover:opacity-70 hover:transition">Descargar CV</a>
       </nav>
     </header>
-    <main class="container mx-auto grid gap-y-10 mt-12">
-      <section>
+    <main class="container mx-auto grid gap-y-10 mt-10 dark:text-gray-300">
+      <section id="about">
         <SectionTitle>Sobre mí 🧑🏻‍💻</SectionTitle>
         <Text>
           Hola 👋🏻, mi nombre es Mateo Ledesma, tengo 22 años y actualmente trabajo como Frontend
@@ -73,7 +85,7 @@ import Text from '../components/Text.astro'
           <li>Desarrollador Web Freelance (2020 - 2021)</li>
         </ul>
       </section>
-      <section>
+      <section id="skills">
         <SectionTitle>Tecnologías 💻</SectionTitle>
         <ul class="list-disc pl-9 text-lg">
           <li>JavaScript</li>
@@ -94,11 +106,21 @@ import Text from '../components/Text.astro'
           <li>Inglés: A2</li>
         </ul>
       </section>
+      <section id="projects">
+        <SectionTitle>Proyectos 📂</SectionTitle>
+        <div class="space-y-7">
+          {projects.map(project => <Project project={project} />)}
+        </div>
+      </section>
     </main>
     <footer class="mt-14 py-8 flex justify-center items-center gap-x-5 text-lg">
-        <a href="" class="hover:opacity-70 transition">Linkedin</a>
-        <a href="" class="hover:opacity-70 transition">Github</a>
-        <a href="" class="hover:opacity-70 transition">Contacto</a>
+      {
+        ExternalLinks.map(link => (
+          <a class="hover:opacity-70 hover:transition" href={link.url} target="_blank">
+            {link.name}
+          </a>
+        ))
+      }
     </footer>
   </body>
 </html>
@@ -136,3 +158,68 @@ import Text from '../components/Text.astro'
     font-display: swap;
   }
 </style>
+
+<style is:global>
+  .dark-mode-fade-in {
+    animation: dark-mode-fade-in 0.4s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .dark-mode-fade-out {
+    animation: dark-mode-fade-out 0.4s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+  @keyframes dark-mode-fade-in {
+    from {
+      transform: translateY(-15px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes dark-mode-fade-out {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(15px);
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  const toggleThemeBtn = document.getElementById('toggle-theme')
+  const sun = toggleThemeBtn?.querySelector('.sun')
+  const moon = toggleThemeBtn?.querySelector('.moon')
+
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark')
+    sun?.classList.add('hidden');
+  } else {
+    moon?.classList.add('hidden');
+    document.documentElement.classList.remove('dark')
+  }
+
+  toggleThemeBtn?.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark')
+ 
+    if (document.documentElement.classList.contains('dark')) {
+      moon?.classList.remove('hidden', 'dark-mode-fade-out')
+      moon?.classList.add('dark-mode-fade-in')
+      sun?.classList.remove('dark-mode-fade-in')
+      sun?.classList.add('dark-mode-fade-out')
+      localStorage.setItem('theme', 'dark')
+    } else {
+      sun?.classList.remove('hidden', 'dark-mode-fade-out')
+      sun?.classList.add('dark-mode-fade-in')
+      moon?.classList.remove('dark-mode-fade-in')
+      moon?.classList.add('dark-mode-fade-out')
+      localStorage.setItem('theme', 'light')
+    }
+  })
+</script>

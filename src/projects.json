@@ -1,0 +1,83 @@
+{
+  "projects": [
+    {
+      "name": "Instagram Clon",
+      "description": "Clon de la versión web de Instagram. El Frontend está desarrollado con React y utiliza React Query para el manejo de la cache y del estado. El Backend fue desarrollado con Node.js, Express y TypeScript.",
+      "images": [
+        "https://raw.githubusercontent.com/mateo-14/personal-web-data/main/portfolio/projects/images/instagram/instagram2.png"
+      ],
+      "link": "https://instagramclon.netlify.app/",
+      "repos": [
+        {
+          "url": "https://github.com/mateo-14/instagram-clon-frontend",
+          "name": "Repositorio Frontend"
+        },
+        {
+          "url": "https://github.com/mateo-14/instagram-clon-backend",
+          "name": "Repositorio Backend"
+        }
+      ]
+    },
+    {
+      "name": "Simple Chat",
+      "description": "Chat simple en tiempo real. Realizado con React y Node.js, utiliza WebSockets para el transporte de los mensajes y Redux para el manejo del estado de los chats y mensajes en el lado del cliente.",
+      "images": [
+        "https://raw.githubusercontent.com/mateo-14/personal-web-data/main/portfolio/projects/images/chat/chat.jpeg"
+      ],
+      "link": "https://mateo-14.github.io/react-node-chat-frontend/",
+      "repos": [
+        {
+          "url": "https://github.com/mateo-14/react-node-chat-frontend",
+          "name": "Repositorio Frontend"
+        },
+        {
+          "url": "https://github.com/mateo-14/react-node-chat-backend",
+          "name": "Repositorio Backend"
+        }
+      ],
+      "featured": true
+    },
+    {
+      "name": "REST Countries Frontend",
+      "description": "Challenge de frontendmentor.io desarrollado con React. Consume la API restcountries.com y muestra las banderas de los países. Esta web cuenta con un buscador, un filtro por regiones y un theme switcher (dark mode y light mode). Usa React Query para cachear los resultados.",
+      "images": [
+        "https://raw.githubusercontent.com/mateo-14/personal-web-data/main/portfolio/projects/images/rest-countries/rest-countries_1.jpeg"
+      ],
+      "link": "https://mateo-14.github.io/react-rest-countries",
+      "repos": [
+        {
+          "url": "https://github.com/mateo-14/react-rest-countries",
+          "name": "Repositorio"
+        }
+      ]
+    },
+    {
+      "name": "ParanaDev",
+      "description": "Landing Page demo de ParanaDev, una startup para ofrecer servicios de desarrollo web y de software.",
+      "images": [
+        "https://raw.githubusercontent.com/mateo-14/personal-web-data/main/portfolio/projects/images/paranadev/paranadev.jpeg"
+      ],
+      "link": "https://nifty-pare-e70c12.netlify.app",
+      "repos": [
+        {
+          "url": "https://github.com/mateo-14/paranadev",
+          "name": "Repositorio"
+        }
+      ]
+    },
+    {
+      "name": "Weather APP",
+      "description": "App desarrollada con Vue para ver el tiempo utilizando OpenWeather API. Muestra el tiempo de tu ubicación y cuenta con un buscador de ciudades.",
+      "images": [
+        "https://raw.githubusercontent.com/mateo-14/personal-web-data/main/portfolio/projects/images/weather-app/weather-app_1.jpeg"
+      ],
+      "link": "https://mateo-14.github.io/clima",
+      "repos": [
+        {
+          "url": "https://github.com/mateo-14/clima",
+          "name": "Repositorio"
+        }
+      ]
+    }
+  ]
+}
