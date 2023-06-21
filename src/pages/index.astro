@@ -1,8 +1,10 @@
 ---
 import { defaultLang, languages } from '../i18n/ui'
 
+export const prerender = false
+
 const acceptLang = Astro.request.headers.get('accept-language')
-console.log('acceptLang', acceptLang)
+
 if (acceptLang) {
   const [lang] = acceptLang.split(',')
   const [langCode] = lang.split('-')
