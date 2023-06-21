@@ -60,6 +60,9 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
             <Icon icon="sun" className="sun absolute top-0" />
             <Icon icon="moon" className="moon absolute top-0" />
           </button>
+          <a class="font-bold" href={`/${Object.keys(languages).filter(_lang => _lang !== lang)[0]}`}>
+            {Object.keys(languages).filter(_lang => _lang !== lang)[0].toUpperCase()}
+          </a>
         </div>
       </div>
 
