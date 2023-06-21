@@ -4,9 +4,9 @@ import { defaultLang, languages } from '../i18n/ui'
 const acceptLang = Astro.request.headers.get('accept-language')
 if (acceptLang) {
   const [lang] = acceptLang.split(',')
-  if (lang in languages) {
-    Astro.redirect(`/${lang}`)
-    return
+  const [langCode] = lang.split('-')
+  if (langCode in languages) {
+    return Astro.redirect(`/${langCode}`)
   }
 }
 
