@@ -2,7 +2,10 @@
   "projects": [
     {
       "name": "Instagram Clon",
-      "description": "Clon de la versión web de Instagram. El Frontend está desarrollado con React y utiliza React Query para el manejo de la cache y del estado. El Backend fue desarrollado con Node.js, Express y TypeScript.",
+      "description": {
+        "es": "Clon de la versión web de Instagram. El Frontend está desarrollado con React y utiliza React Query para el manejo de la cache y del estado. El Backend fue desarrollado con Node.js, Express y TypeScript.",
+        "en": "Instagram web version clone. The Frontend is developed with React and uses React Query for cache and state management. The Backend was developed with Node.js, Express and TypeScript."
+      },
       "images": [
         "https://raw.githubusercontent.com/mateo-14/personal-web-data/main/portfolio/projects/images/instagram/instagram2.png"
       ],
@@ -10,17 +13,26 @@
       "repos": [
         {
           "url": "https://github.com/mateo-14/instagram-clon-frontend",
-          "name": "Repositorio Frontend"
+          "text": {
+            "es": "Repositorio Frontend",
+            "en": "Frontend Repository"
+          }
         },
         {
           "url": "https://github.com/mateo-14/instagram-clon-backend",
-          "name": "Repositorio Backend"
+          "text": {
+            "es": "Repositorio Backend",
+            "en": "Backend Repository"
+          }
         }
       ]
     },
     {
       "name": "Simple Chat",
-      "description": "Chat simple en tiempo real. Realizado con React y Node.js, utiliza WebSockets para el transporte de los mensajes y Redux para el manejo del estado de los chats y mensajes en el lado del cliente.",
+      "description": {
+        "es": "Chat en tiempo real. Realizado con React y Node.js, utiliza WebSockets para el transporte de los mensajes y Redux para el manejo del estado de los chats y mensajes en el lado del cliente.",
+        "en": "Real time chat. Made with React and Node.js, uses WebSockets for message transport and Redux for managing the state of chats and messages on the client side."
+      },
       "images": [
         "https://raw.githubusercontent.com/mateo-14/personal-web-data/main/portfolio/projects/images/chat/chat.jpeg"
       ],
@@ -28,18 +40,27 @@
       "repos": [
         {
           "url": "https://github.com/mateo-14/react-node-chat-frontend",
-          "name": "Repositorio Frontend"
+          "text": {
+            "es": "Repositorio Frontend",
+            "en": "Frontend Repository"
+          }
         },
         {
           "url": "https://github.com/mateo-14/react-node-chat-backend",
-          "name": "Repositorio Backend"
+          "text": {
+            "es": "Repositorio Backend",
+            "en": "Backend Repository"
+          }
         }
       ],
       "featured": true
     },
     {
       "name": "REST Countries Frontend",
-      "description": "Challenge de frontendmentor.io desarrollado con React. Consume la API restcountries.com y muestra las banderas de los países. Esta web cuenta con un buscador, un filtro por regiones y un theme switcher (dark mode y light mode). Usa React Query para cachear los resultados.",
+      "description": {
+        "es": "Challenge de frontendmentor.io desarrollado con React. Consume la API restcountries.com y muestra las banderas de los países. Esta web cuenta con un buscador, un filtro por regiones y un theme switcher (dark mode y light mode). Usa React Query para cachear los resultados.",
+        "en": "Frontendmentor.io challenge developed with React. Consumes the restcountries.com API and shows the flags of the countries. This web has a search engine, a filter by regions and a theme switcher (dark mode and light mode). Uses React Query to cache the results."
+      },
       "images": [
         "https://raw.githubusercontent.com/mateo-14/personal-web-data/main/portfolio/projects/images/rest-countries/rest-countries_1.jpeg"
       ],
@@ -47,13 +68,19 @@
       "repos": [
         {
           "url": "https://github.com/mateo-14/react-rest-countries",
-          "name": "Repositorio"
+          "text": {
+            "es": "Repositorio",
+            "en": "Repository"
+          }
         }
       ]
     },
     {
       "name": "ParanaDev",
-      "description": "Landing Page demo de ParanaDev, una startup para ofrecer servicios de desarrollo web y de software.",
+      "description": {
+        "es": "Landing Page demo de ParanaDev, una startup para ofrecer servicios de desarrollo web y de software.",
+        "en": "ParanaDev demo landing page, a startup to offer web and software development services."
+      },
       "images": [
         "https://raw.githubusercontent.com/mateo-14/personal-web-data/main/portfolio/projects/images/paranadev/paranadev.jpeg"
       ],
@@ -61,13 +88,19 @@
       "repos": [
         {
           "url": "https://github.com/mateo-14/paranadev",
-          "name": "Repositorio"
+          "text": {
+            "es": "Repositorio",
+            "en": "Repository"
+          }
         }
       ]
     },
     {
       "name": "Weather APP",
-      "description": "App desarrollada con Vue para ver el tiempo utilizando OpenWeather API. Muestra el tiempo de tu ubicación y cuenta con un buscador de ciudades.",
+      "description": {
+        "es": "App desarrollada con Vue para ver el tiempo utilizando OpenWeather API. Muestra el tiempo de tu ubicación y cuenta con un buscador de ciudades.",
+        "en": "App developed with Vue to see the weather using OpenWeather API. It shows the weather of your location and has a city search engine."
+      },
       "images": [
         "https://raw.githubusercontent.com/mateo-14/personal-web-data/main/portfolio/projects/images/weather-app/weather-app_1.jpeg"
       ],
@@ -75,7 +108,10 @@
       "repos": [
         {
           "url": "https://github.com/mateo-14/clima",
-          "name": "Repositorio"
+          "text": {
+            "es": "Repositorio",
+            "en": "Repository"
+          }
         }
       ]
     }

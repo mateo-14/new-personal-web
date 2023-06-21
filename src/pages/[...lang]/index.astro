@@ -1,0 +1,226 @@
+---
+import SectionTitle from '../../components/SectionTitle.astro'
+import Text from '../../components/Text.astro'
+import Icon, { icon } from '../../components/Icon.astro'
+import { projects } from '../../projects.json'
+import Project from '../../components/Project.astro'
+import { languages } from '../../i18n/ui'
+import { getLangFromUrl, useTranslations } from '../../i18n/utils'
+
+export const prerender = true
+
+export function getStaticPaths() {
+  return Object.keys(languages).map(lang => ({ params: { lang } }))
+}
+
+const { lang } = Astro.params
+const t = useTranslations(getLangFromUrl(Astro.url))
+
+const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
+  {
+    name: 'Github',
+    url: 'https://github.com/mateo-14',
+    icon: 'github'
+  },
+  {
+    name: 'Linkedin',
+    url: 'https://linkedin.com/in/mateo-ledesma',
+    icon: 'linkedin'
+  },
+  {
+    name: t('nav.contact'),
+    url: 'mailto:mateo.14.ledesma@gmail.com',
+    icon: 'mail'
+  }
+]
+---
+
+<html lang={lang} class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Mateo Ledesma - Full Stack Developer</title>
+  </head>
+  <body class="dark:bg-gray-900 dark:text-white text-neutral-900">
+    <header class="container mx-auto py-4">
+      <div class="flex justify-between items-center">
+        <div>
+          <h1 class="text-2xl font-bold">Mateo Ledesma</h1>
+          <h2 class="dark:text-gray-400 font-bold">Full Stack Developer</h2>
+        </div>
+        <div class="flex gap-x-6">
+          {
+            ExternalLinks.map(link => (
+              <a href={link.url} class="hover:scale-125 hover:transition" target="_blank">
+                <Icon icon={link.icon} />
+              </a>
+            ))
+          }
+          <button id="toggle-theme" class="hover:scale-125 hover:transition relative w-6 h-6">
+            <Icon icon="sun" className="sun absolute top-0" />
+            <Icon icon="moon" className="moon absolute top-0" />
+          </button>
+        </div>
+      </div>
+
+      <nav class="flex gap-x-5 text-lg mt-4 flex-wrap font-bold">
+        <a href="#about" class="hover:opacity-70 hover:transition">{t('nav.about')}</a>
+        <a href="#skills" class="hover:opacity-70 hover:transition">{t('nav.skills')}</a>
+        <a href="#projects" class="hover:opacity-70 hover:transition">{t('nav.projects')}</a>
+        <a href=`/Mateo Ledesma - Resume - ${lang}.pdf` download class="hover:opacity-70 hover:transition">{t('nav.resume')}</a>
+      </nav>
+    </header>
+    <main class="container mx-auto grid gap-y-10 mt-10 dark:text-gray-300">
+      <section id="about" class="scroll-m-5">
+        <SectionTitle>{t('nav.about')} 🧑🏻‍💻</SectionTitle>
+        <Text>
+          {t('about.0')}
+        </Text>
+        <Text>
+          {t('about.1')}
+          {' '}
+          <a
+            class="font-bold text-white underline"
+            href=`/Mateo Ledesma - Resume - ${lang}.pdf`
+            download>{t('about.clickHere')}</a
+          >.
+        </Text>
+      </section>
+
+      <section id="skills" class="scroll-m-5">
+        <SectionTitle>{t('nav.skills')} 💻</SectionTitle>
+        <ul class="list-disc pl-9 text-lg">
+          <li>JavaScript</li>
+          <li>TypeScript</li>
+          <li>React</li>
+          <li>Next.js</li>
+          <li>Node.js</li>
+          <li>HTML y CSS</li>
+          <li>C#</li>
+          <li>Go</li>
+          <li>SQL</li>
+        </ul>
+      </section>
+
+      <section id="projects" class="scroll-m-5">
+        <SectionTitle>{t('nav.projects')} 📂</SectionTitle>
+        <div class="space-y-7">
+          {projects.map(project => <Project project={project} />)}
+        </div>
+      </section>
+    </main>
+    <footer class="mt-14 py-8 flex justify-center items-center gap-x-5 text-lg">
+      {
+        ExternalLinks.map(link => (
+          <a class="hover:opacity-70 hover:transition" href={link.url} target="_blank">
+            {link.name}
+          </a>
+        ))
+      }
+    </footer>
+  </body>
+</html>
+
+<style>
+  @font-face {
+    font-family: 'Lato';
+    src: url('/fonts/Lato-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Lato';
+    src: url('/fonts/Lato-Italic.ttf');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Lato';
+    src: url('/fonts/Lato-Bold.ttf');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Lato';
+    src: url('/fonts/Lato-BoldItalic.ttf');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+  }
+</style>
+
+<style is:global>
+  .dark-mode-fade-in {
+    animation: dark-mode-fade-in 0.4s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .dark-mode-fade-out {
+    animation: dark-mode-fade-out 0.4s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+  @keyframes dark-mode-fade-in {
+    from {
+      transform: translateY(-15px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes dark-mode-fade-out {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(15px);
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  const toggleThemeBtn = document.getElementById('toggle-theme')
+  const sun = toggleThemeBtn?.querySelector('.sun')
+  const moon = toggleThemeBtn?.querySelector('.moon')
+
+  if (
+    localStorage.theme === 'dark' ||
+    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+  ) {
+    document.documentElement.classList.add('dark')
+    sun?.classList.add('hidden')
+  } else {
+    moon?.classList.add('hidden')
+    document.documentElement.classList.remove('dark')
+  }
+
+  toggleThemeBtn?.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark')
+
+    if (document.documentElement.classList.contains('dark')) {
+      moon?.classList.remove('hidden', 'dark-mode-fade-out')
+      moon?.classList.add('dark-mode-fade-in')
+      sun?.classList.remove('dark-mode-fade-in')
+      sun?.classList.add('dark-mode-fade-out')
+      localStorage.setItem('theme', 'dark')
+    } else {
+      sun?.classList.remove('hidden', 'dark-mode-fade-out')
+      sun?.classList.add('dark-mode-fade-in')
+      moon?.classList.remove('dark-mode-fade-in')
+      moon?.classList.add('dark-mode-fade-out')
+      localStorage.setItem('theme', 'light')
+    }
+  })
+</script>
