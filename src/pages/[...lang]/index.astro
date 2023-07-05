@@ -13,7 +13,6 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params
 const t = useTranslations(getLangFromUrl(Astro.url))
-
 const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
   {
     name: 'Github',
@@ -31,6 +30,7 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
     icon: 'mail'
   }
 ]
+
 ---
 
 <html lang={lang} class="scroll-smooth">
@@ -41,12 +41,12 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
     <meta name="generator" content={Astro.generator} />
     <title>Mateo Ledesma - Full Stack Developer</title>
   </head>
-  <body class="dark:bg-gray-900 dark:text-white text-neutral-900">
+  <body class="dark:bg-customBlack dark:text-white text-neutral-900">
     <header class="container mx-auto py-4">
-      <div class="flex justify-between items-center">
+      <div class="flex justify-between items-center flex-wrap gap-y-4 gap-x-4">
         <div>
-          <h1 class="text-2xl font-bold">Mateo Ledesma</h1>
-          <h2 class="dark:text-gray-400 font-bold">Full Stack Developer</h2>
+          <h1 class="text-2xl font-bold">Mateo Ledesma <span class="underscore-anim">_</span></h1>
+          <h2 class="dark:text-gray-400 italic font-bold">Full Stack Developer</h2>
         </div>
         <div class="flex gap-x-6">
           {
@@ -60,18 +60,23 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
             <Icon icon="sun" className="sun absolute top-0" />
             <Icon icon="moon" className="moon absolute top-0" />
           </button>
-          <a class="font-bold" href={`/${Object.keys(languages).filter(_lang => _lang !== lang)[0]}`}>
+          <a class="font-bold" href={`/${Object.keys(languages).filter(_lang => _lang !== lang)[0]}`} title={t('lang.change')}>
             {Object.keys(languages).filter(_lang => _lang !== lang)[0].toUpperCase()}
           </a>
         </div>
       </div>
 
-      <nav class="flex gap-x-5 text-lg mt-4 flex-wrap font-bold">
-        <a href="#about" class="hover:opacity-70 hover:transition">{t('nav.about')}</a>
-        <a href="#skills" class="hover:opacity-70 hover:transition">{t('nav.skills')}</a>
-        <a href="#projects" class="hover:opacity-70 hover:transition">{t('nav.projects')}</a>
-        <a href=`/Mateo Ledesma - Resume - ${lang}.pdf` download class="hover:opacity-70 hover:transition">{t('nav.resume')}</a>
-      </nav>
+      <div class="font-bold flex items-center mt-4 text-lg gap-x-3">
+        <span class="hidden md:inline">
+          {'>'}
+        </span>
+        <nav class="flex gap-x-5 flex-wrap">
+          <a href="#about" class="hover:opacity-70 hover:transition">{t('nav.about')}</a>
+          <a href="#skills" class="hover:opacity-70 hover:transition">{t('nav.skills')}</a>
+          <a href="#projects" class="hover:opacity-70 hover:transition">{t('nav.projects')}</a>
+          <a href=`/Mateo Ledesma - Resume - ${lang}.pdf` download class="hover:opacity-70 hover:transition">{t('nav.resume')}</a>
+        </nav>
+      </div>
     </header>
     <main class="container mx-auto grid gap-y-10 mt-10 dark:text-gray-300">
       <section id="about" class="scroll-m-5">
@@ -83,7 +88,7 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
           {t('about.1')}
           {' '}
           <a
-            class="font-bold text-white underline"
+            class="font-bold dark:text-white underline"
             href=`/Mateo Ledesma - Resume - ${lang}.pdf`
             download>{t('about.clickHere')}</a
           >.
@@ -119,7 +124,11 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
             {link.name}
           </a>
         ))
+        
       }
+        <a class="hover:opacity-70 hover:transition" href={`/${Object.keys(languages).filter(_lang => _lang !== lang)[0]}`} title={t('lang.change')}>
+        {Object.entries(languages).filter(([code, _lang]) => code !== lang)[0][1]}
+      </a>
     </footer>
   </body>
 </html>
@@ -187,6 +196,16 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
     to {
       transform: translateY(15px);
       opacity: 0;
+    }
+  }
+
+  .underscore-anim {
+    animation: underscore-anim steps(2, start) 1s infinite;
+  }
+
+  @keyframes underscore-anim {
+    to {
+      visibility: hidden;
     }
   }
 </style>
