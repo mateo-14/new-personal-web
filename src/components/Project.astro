@@ -22,13 +22,15 @@ const t = useTranslations(lang)
 ---
 
 <article class="px-5 py-6 dark:bg-white/5 bg-black/5 rounded-lg shadow-md">
-  <h3 class="text-xl font-bold mb-3 dark:text-white">{project.name}</h3>
-  <div class="flex gap-x-5 flex-wrap gap-y-5 md:flex-nowrap">
-    <img
-      src={project.images[0]}
-      alt={project.name}
-      class="rounded-[0.25rem] aspect-video object-cover w-full md:w-80"
-    />
+  <h3 class="text-xl font-bold dark:text-white">{project.name}</h3>
+  <div class="flex gap-x-5 flex-wrap gap-y-5 md:flex-nowrap mt-2">
+    <a href={project.link} class="w-full md:w-80 h-full aspect-video flex-shrink-0 mt-2">
+      <img
+        src={project.images[0]}
+        alt={project.name}
+        class="rounded-[0.25rem] object-cover w-full h-full"
+      />
+    </a>
     <div class="text-base">
       <p>
         {project.description[lang]}
