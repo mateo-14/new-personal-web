@@ -16,8 +16,8 @@ export const ui = {
     'about.1': 'You can download my resume to learn more about me by',
     'about.clickHere': 'clicking here',
     'project.open': 'Demo',
-    'lang.change': 'Change language' 
-    
+    'lang.change': 'Change language',
+    'and': 'and'
   },
   es: {
     'nav.about': 'Sobre mí',
@@ -29,6 +29,7 @@ export const ui = {
     'about.1': 'Podés descargar mi CV para conocer más sobre mí haciendo',
     'about.clickHere': 'click acá',
     'project.open': 'Demo',
-    'lang.change': 'Cambiar idioma'
+    'lang.change': 'Cambiar idioma',
+    'and': 'y'
   },
 } as const;
