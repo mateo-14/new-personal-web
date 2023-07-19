@@ -17,7 +17,9 @@ export const ui = {
     'about.clickHere': 'clicking here',
     'project.open': 'Demo',
     'lang.change': 'Change language',
-    'and': 'and'
+    'and': 'and',
+    'resume-file': 'resume.pdf',
+    'resume-filename': 'Mateo Ledesma - Resume.pdf'
   },
   es: {
     'nav.about': 'Sobre mí',
@@ -30,6 +32,8 @@ export const ui = {
     'about.clickHere': 'click acá',
     'project.open': 'Demo',
     'lang.change': 'Cambiar idioma',
-    'and': 'y'
+    'and': 'y',
+    'resume-file': 'cv.pdf',
+    'resume-filename': 'Mateo Ledesma - CV.pdf'
   },
 } as const;
