@@ -20,6 +20,9 @@ export const ui = {
     'and': 'and',
     'resume-file': 'resume.pdf',
     'resume-filename': 'Mateo Ledesma - Resume.pdf',
+    'date.prefix': 'on',
+    'date.updated': 'Updated',
+    'github.repos': 'My latest updated repositories on GitHub',
   },
   es: {
     'nav.about': 'Sobre mí',
@@ -34,6 +37,9 @@ export const ui = {
     'lang.change': 'Change to English',
     'and': 'y',
     'resume-file': 'cv.pdf',
-    'resume-filename': 'Mateo Ledesma - CV.pdf'
+    'resume-filename': 'Mateo Ledesma - CV.pdf',
+    'date.prefix': 'el',
+    'date.updated': 'Actualizado',
+    'github.repos': 'Mis últimos repositorios actualizados en GitHub',
   },
 } as const;

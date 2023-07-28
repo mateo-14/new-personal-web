@@ -6,6 +6,7 @@ import { projects } from '../../projects.json'
 import Project from '../../components/Project.astro'
 import { languages } from '../../i18n/ui'
 import { getLangFromUrl, useTranslations } from '../../i18n/utils'
+import GithubRepo, { GithubRepostory } from '../../components/GithubRepo.astro'
 
 export function getStaticPaths() {
   return Object.keys(languages).map(lang => ({ params: { lang } }))
@@ -15,7 +16,7 @@ const { lang } = Astro.params
 const t = useTranslations(getLangFromUrl(Astro.url))
 const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
   {
-    name: 'Github',
+    name: 'GitHub',
     url: 'https://github.com/mateo-14',
     icon: 'github'
   },
@@ -31,6 +32,18 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
   }
 ]
 
+const excludedRepos = ['mateo-14']
+
+const res = await fetch('https://api.github.com/users/mateo-14/repos?sort=pushed&per_page=10', {
+  headers: {
+    Authorization: `token ${import.meta.env.GITHUB_ACCESS_TOKEN}`
+  }
+})
+let repos: GithubRepostory[]
+if (res.status === 200) {
+  repos  = await res.json()
+  repos = repos.filter(repo => !repo.fork && !excludedRepos.includes(repo.name)).slice(0, 5)
+}
 ---
 
 <html lang={lang} class="scroll-smooth">
@@ -40,6 +53,8 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Mateo Ledesma - Full Stack Developer</title>
+
+    <script>import '../../main.js';</script>
   </head>
   <body class="dark:bg-customBlack dark:text-white text-neutral-900">
     <header class="container mx-auto py-4">
@@ -74,6 +89,7 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
           <a href="#about" class="hover:opacity-70 hover:transition">{t('nav.about')}</a>
           <a href="#skills" class="hover:opacity-70 hover:transition">{t('nav.skills')}</a>
           <a href="#projects" class="hover:opacity-70 hover:transition">{t('nav.projects')}</a>
+          <a href="#github" class="hover:opacity-70 hover:transition">GitHub Repos</a>
           <a href={t('resume-file')} class="hover:opacity-70 hover:transition">{t('nav.resume')}</a>
         </nav>
       </div>
@@ -115,6 +131,20 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
           {projects.map(project => <Project project={project} />)}
         </div>
       </section>
+
+      {
+        repos != undefined &&      
+        <section id="github">
+          <SectionTitle>
+            {t('github.repos')} <Icon icon="github" className='inline ml-2 mb-1.5'/>
+          </SectionTitle>
+          <ul class="space-y-5">
+            {repos.map(repo => 
+              <GithubRepo repo={repo}/>
+            )}
+          </ul>
+        </section>
+      }
     </main>
     <footer class="mt-14 py-8 flex justify-center items-center gap-x-5 text-lg">
       {

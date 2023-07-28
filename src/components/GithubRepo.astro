@@ -1,0 +1,44 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import {colors} from '../langs-colors.json'
+
+export interface GithubRepostory {
+  name: string
+  description: string
+  html_url: string
+  pushed_at: string
+  stargazers_count: number
+  language: string
+  fork: boolean
+}
+
+interface Props {
+  repo: GithubRepostory
+}
+
+const { repo } = Astro.props
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<li class="px-5 py-4 dark:bg-white/5 bg-black/5 rounded-lg shadow-md">
+  <h3 class="text-lg font-bold dark:text-white">
+    <a class="hover:underline" href={repo.html_url}>{repo.name}</a>  
+  </h3>
+  {
+    repo.description != null &&
+    <p>{repo.description}</p>
+  }
+  <div class="text-sm mt-3 flex items-center">
+    <span class="mr-3 flex items-center gap-x-1.5">
+      <span style={`background-color:${colors[repo.language].color}`} class="h-2 w-2 block rounded-full"></span>
+      {repo.language}  
+    </span>
+    <span>
+      {t('date.updated')}
+      <relative-time datetime={repo.pushed_at} prefix={t('date.prefix')}>
+        {new Date(repo.pushed_at).toLocaleString()}
+      </relative-time>
+    </span>
+  </div>
+</li>
