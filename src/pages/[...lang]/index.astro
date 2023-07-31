@@ -289,7 +289,7 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
       li.querySelector('a').textContent = repo.name
       li.querySelector('[data-description]').textContent = repo.description
       li.querySelector('[data-language] span').style.backgroundColor = repo.color
-      li.querySelector('[data-language] span').title = repo.language
+      li.querySelector('[data-language]')?.append(repo.language)
       li.querySelector('relative-time').setAttribute('datetime', repo.pushed_at)
       li.querySelector('relative-time').innerText = new Date(repo.pushed_at).toLocaleString()
       return li
