@@ -6,7 +6,6 @@ import { projects } from '../../projects.json'
 import Project from '../../components/Project.astro'
 import { languages } from '../../i18n/ui'
 import { getLangFromUrl, useTranslations } from '../../i18n/utils'
-import GithubRepo, { GithubRepostory } from '../../components/GithubRepo.astro'
 
 export function getStaticPaths() {
   return Object.keys(languages).map(lang => ({ params: { lang } }))
@@ -14,6 +13,7 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params
 const t = useTranslations(getLangFromUrl(Astro.url))
+
 const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
   {
     name: 'GitHub',
@@ -32,18 +32,7 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
   }
 ]
 
-const excludedRepos = ['mateo-14']
 
-const res = await fetch('https://api.github.com/users/mateo-14/repos?sort=pushed&per_page=10', {
-  headers: {
-    Authorization: `token ${import.meta.env.GITHUB_ACCESS_TOKEN}`
-  }
-})
-let repos: GithubRepostory[]
-if (res.status === 200) {
-  repos  = await res.json()
-  repos = repos.filter(repo => !repo.fork && !excludedRepos.includes(repo.name)).slice(0, 5)
-}
 ---
 
 <html lang={lang} class="scroll-smooth">
@@ -133,15 +122,11 @@ if (res.status === 200) {
       </section>
 
       {
-        repos != undefined &&      
         <section id="github">
           <SectionTitle>
             {t('github.repos')} <Icon icon="github" className='inline ml-2 mb-1.5'/>
           </SectionTitle>
           <ul class="space-y-5">
-            {repos.map(repo => 
-              <GithubRepo repo={repo}/>
-            )}
           </ul>
         </section>
       }
@@ -239,7 +224,8 @@ if (res.status === 200) {
   }
 </style>
 
-<script>
+<script>import type { GithubRepostory } from '../../components/GithubRepo.astro'
+
   const toggleThemeBtn = document.getElementById('toggle-theme')
   const sun = toggleThemeBtn?.querySelector('.sun')
   const moon = toggleThemeBtn?.querySelector('.moon')
@@ -272,4 +258,48 @@ if (res.status === 200) {
       localStorage.setItem('theme', 'light')
     }
   })
+
+  const language = document.documentElement.lang
+
+  const githubRepoTemplate = `<h3 class="text-lg font-bold dark:text-white">
+      <a class="hover:underline"></a>  
+    </h3>
+    <p data-description></p>
+    <div class="text-sm mt-3 flex items-center">
+      <span class="mr-3 flex items-center gap-x-1.5" data-language>
+        <span class="h-2 w-2 block rounded-full"></span>
+      </span>
+      <span>
+        ${language === 'en' ? 'Updated' : 'Actualizado'}
+        <relative-time prefix="${language === 'en' ? 'on' : 'el'}">
+        </relative-time>
+      </span>
+    </div>`;
+
+  (async () => {
+    const reposList = document.querySelector('#github ul')
+    const res = await fetch('/repos.json')
+    const repos: GithubRepostory[] = await res.json()
+
+    const reposItems = repos.map(repo => {
+      const li = document.createElement('li')
+      li.classList.add('px-5', 'py-4', 'dark:bg-white/5', 'bg-black/5', 'rounded-lg', 'shadow-md')
+      li.innerHTML = githubRepoTemplate
+      li.querySelector('a').href = repo.html_url
+      li.querySelector('a').textContent = repo.name
+      li.querySelector('[data-description]').textContent = repo.description
+      li.querySelector('[data-language] span').style.backgroundColor = repo.color
+      li.querySelector('[data-language] span').title = repo.language
+      li.querySelector('relative-time').setAttribute('datetime', repo.pushed_at)
+      li.querySelector('relative-time').innerText = new Date(repo.pushed_at).toLocaleString()
+      return li
+    })
+
+    if (!repos?.length) {
+      reposList?.parentElement?.remove()
+    }
+
+    reposList?.append(...reposItems)
+  })()
+
 </script>
