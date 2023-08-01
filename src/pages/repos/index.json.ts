@@ -1,5 +1,7 @@
 import { colors } from '../../langs-colors.json'
 
+export const prerender = false
+
 const excludedRepos = ['mateo-14']
 
 export interface GithubRepostory {
