@@ -224,7 +224,8 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
   }
 </style>
 
-<script>import type { GithubRepostory } from '../../components/GithubRepo.astro'
+<script>
+  import type { GithubRepostory } from '../repos/index.json'
 
   const toggleThemeBtn = document.getElementById('toggle-theme')
   const sun = toggleThemeBtn?.querySelector('.sun')
