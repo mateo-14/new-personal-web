@@ -48,26 +48,6 @@
       ]
     },
     {
-      "name": "ParanaDev",
-      "description": {
-        "es": "Landing Page demo de ParanaDev, una startup para ofrecer servicios de desarrollo web y de software.",
-        "en": "ParanaDev demo landing page, a startup to offer web and software development services."
-      },
-      "images": [
-        "/images/projects/paranadev.webp"
-      ],
-      "link": "https://nifty-pare-e70c12.netlify.app",
-      "repos": [
-        {
-          "url": "https://github.com/mateo-14/paranadev",
-          "text": {
-            "es": "Repositorio",
-            "en": "Repository"
-          }
-        }
-      ]
-    },
-    {
       "name": "Weather APP",
       "description": {
         "es": "App desarrollada con Vue para ver el tiempo utilizando OpenWeather API. Muestra el tiempo de tu ubicación y cuenta con un buscador de ciudades.",
