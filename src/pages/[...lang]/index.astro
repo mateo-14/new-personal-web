@@ -46,7 +46,7 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
     <script>import '../../main.js';</script>
   </head>
   <body class="dark:bg-customBlack dark:text-white text-neutral-900">
-    <header class="container mx-auto py-4">
+    <header class="container mx-auto py-2.5">
       <div class="flex justify-between items-center flex-wrap gap-y-4 gap-x-4">
         <div>
           <h1 class="text-2xl font-bold">Mateo Ledesma <span class="underscore-anim">_</span></h1>
@@ -55,12 +55,12 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
         <div class="flex gap-x-6">
           {
             ExternalLinks.map(link => (
-              <a href={link.url} class="hover:scale-125 hover:transition" target="_blank">
+              <a href={link.url} class="hover:scale-125 hover:transition" target="_blank" title={link.name}>
                 <Icon icon={link.icon} />
               </a>
             ))
           }
-          <button id="toggle-theme" class="hover:scale-125 hover:transition relative w-6 h-6">
+          <button id="toggle-theme" class="hover:scale-125 hover:transition relative w-6 h-6" title={t('theme.change')} type="button">
             <Icon icon="sun" className="sun absolute top-0" />
             <Icon icon="moon" className="moon absolute top-0" />
           </button>
@@ -70,16 +70,16 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
         </div>
       </div>
 
-      <div class="font-bold flex items-center mt-4 text-lg gap-x-3">
+      <div class="font-bold flex items-center mt-2.5 text-lg gap-x-1.5">
         <span class="hidden md:inline">
           {'>'}
         </span>
-        <nav class="flex gap-x-5 flex-wrap">
-          <a href="#about" class="hover:opacity-70 hover:transition">{t('nav.about')}</a>
-          <a href="#skills" class="hover:opacity-70 hover:transition">{t('nav.skills')}</a>
-          <a href="#projects" class="hover:opacity-70 hover:transition">{t('nav.projects')}</a>
-          <a href="#github" class="hover:opacity-70 hover:transition">GitHub Repos</a>
-          <a href={t('resume-file')} class="hover:opacity-70 hover:transition">{t('nav.resume')}</a>
+        <nav class="flex gap-x-3 flex-wrap">
+          <a href="#about" class="hover:opacity-70 hover:transition py-1.5 px-1.5">{t('nav.about')}</a>
+          <a href="#skills" class="hover:opacity-70 hover:transition py-1.5 px-1.5">{t('nav.skills')}</a>
+          <a href="#projects" class="hover:opacity-70 hover:transition py-1.5 px-1.5">{t('nav.projects')}</a>
+          <a href="#github" class="hover:opacity-70 hover:transition py-1.5 px-1.5">GitHub Repos</a>
+          <a href={t('resume-file')} class="hover:opacity-70 hover:transition py-1.5 px-1.5">{t('nav.resume')}</a>
         </nav>
       </div>
     </header>

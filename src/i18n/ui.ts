@@ -21,6 +21,7 @@ export const ui = {
     'resume-file': 'resume.pdf',
     'resume-filename': 'Mateo Ledesma - Resume.pdf',
     'github.repos': 'My latest updated repositories on GitHub',
+    'theme.change': 'Change theme',
   },
   es: {
     'nav.about': 'Sobre mí',
@@ -37,5 +38,6 @@ export const ui = {
     'resume-file': 'cv.pdf',
     'resume-filename': 'Mateo Ledesma - CV.pdf',
     'github.repos': 'Mis últimos repositorios actualizados en GitHub',
+    'theme.change': 'Cambiar tema',
   },
 } as const;
