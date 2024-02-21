@@ -76,7 +76,6 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
         </span>
         <nav class="flex gap-x-3 flex-wrap">
           <a href="#about" class="hover:opacity-70 hover:transition py-1.5 px-1.5">{t('nav.about')}</a>
-          <a href="#skills" class="hover:opacity-70 hover:transition py-1.5 px-1.5">{t('nav.skills')}</a>
           <a href="#projects" class="hover:opacity-70 hover:transition py-1.5 px-1.5">{t('nav.projects')}</a>
           <a href="#github" class="hover:opacity-70 hover:transition py-1.5 px-1.5">GitHub Repos</a>
           <a href={t('resume-file')} class="hover:opacity-70 hover:transition py-1.5 px-1.5">{t('nav.resume')}</a>
@@ -98,19 +97,6 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
           >{t('about.clickHere')}</a
           >.
         </Text>
-      </section>
-
-      <section id="skills" class="scroll-m-5">
-        <SectionTitle>{t('nav.skills')} 💻</SectionTitle>
-        <ul class="list-disc pl-9 text-lg">
-          <li>JavaScript</li>
-          <li>TypeScript</li>
-          <li>React</li>
-          <li>Next.js</li>
-          <li>Node.js</li>
-          <li>HTML {t('and')} CSS</li>
-          <li>Go</li>
-        </ul>
       </section>
 
       <section id="projects" class="scroll-m-5">
