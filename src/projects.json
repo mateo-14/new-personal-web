@@ -9,7 +9,7 @@
       "images": [
         "/images/projects/instagram.webp"
       ],
-      "link": "https://instagramclon.netlify.app/",
+      "link": "https://instagramclon.vercel.app/",
       "repos": [
         {
           "url": "https://github.com/mateo-14/instagram-clon-frontend",
