@@ -50,7 +50,7 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
       <div class="flex justify-between items-center flex-wrap gap-y-4 gap-x-4">
         <div>
           <h1 class="text-2xl font-bold">Mateo Ledesma <span class="underscore-anim">_</span></h1>
-          <h2 class="dark:text-gray-400 italic font-bold">Full Stack Developer</h2>
+          <h2 class="dark:text-gray-400 italic font-bold">Software Developer</h2>
         </div>
         <div class="flex gap-x-6">
           {
@@ -85,11 +85,10 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
     <main class="container mx-auto grid gap-y-12 mt-10 dark:text-gray-300">
       <section id="about" class="scroll-m-5">
         <SectionTitle>{t('nav.about')} 🧑🏻‍💻</SectionTitle>
+        <Text>{t('about.1')}</Text>
+        <Text>{t('about.2')}</Text>
         <Text>
-          {t('about.0')}
-        </Text>
-        <Text>
-          {t('about.1')}
+          {t('about.cv')}
           {' '}
           <a
             class="font-bold dark:text-white underline"

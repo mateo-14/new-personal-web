@@ -1,9 +1,9 @@
 export const languages = {
   en: 'English',
   es: 'Español',
-};
+}
 
-export const defaultLang = 'en';
+export const defaultLang = 'en'
 
 export const ui = {
   en: {
@@ -11,8 +11,9 @@ export const ui = {
     'nav.projects': 'Projects',
     'nav.resume': 'Resume',
     'nav.contact': 'Contact',
-    'about.0': 'Hi 👋🏻, my name is Mateo Ledesma, I\'m 23, I have been a Full Stack Developer since 2019 and I started learning to program on my own in 2015. I currently work full time as a Front End Developer, using JavaScript, React and Next.js. Additionally, I\'m interested in expanding my skills and working as a Back End Developer in the future, using languages like Go.',
-    'about.1': 'If you are interested in knowing more about me, you can check my resume by',
+    'about.1': 'My name is Mateo Ledesma, I\'m 24 years old, and I\'m a Software Developer. I started getting involved in this field in 2015, learning on my own.Currently, I work full-time as a Frontend Developer, using JavaScript, React, and Next.js.',
+    'about.2': 'I\'m always looking to grow professionally, and I\'m interested in expanding my skills into Backend development using languages like Go, C#, and Java.',
+    'about.cv': 'If you are interested in knowing more about me, you can check my resume by',
     'about.clickHere': 'clicking here',
     'project.open': 'Demo',
     'lang.change': 'Cambiar a español',
@@ -27,8 +28,9 @@ export const ui = {
     'nav.projects': 'Proyectos',
     'nav.resume': 'CV',
     'nav.contact': 'Contacto',
-    'about.0': 'Hola 👋🏻, me llamo Mateo Ledesma, tengo 23 años, soy Desarrollador Full Stack desde el año 2019 y comencé a aprender programación de manera autodidacta en el año 2015. Actualmente trabajo a tiempo completo (Full time) como Desarrollador Front End, utilizando JavaScript, React y Next.js. Además, tengo el interés de expandir mis habilidades y trabajar como Desarrollador Back End en el futuro, utilizando lenguajes como Go.',
-    'about.1': 'Si te interesa saber más sobre mí, podés ver mi CV haciendo',
+    'about.1': 'Me llamo Mateo Ledesma, tengo 24 años y soy Software Developer. Empecé a involucrarme en este mundo en 2015, aprendiendo de forma autodidacta. Actualmente, trabajo a tiempo completo como Desarrollador Frontend utilizando JavaScript, React y Next.js.',
+    'about.2': 'Estoy en constante crecimiento profesional y me interesa ampliar mis habilidades hacia el Backend, utilizando lenguajes como Go, C# y Java.',
+    'about.cv': 'Si te interesa saber más sobre mí, podés ver mi CV haciendo',
     'about.clickHere': 'click acá',
     'project.open': 'Demo',
     'lang.change': 'Change to English',
@@ -38,4 +40,4 @@ export const ui = {
     'github.repos': 'Mis últimos repositorios actualizados en GitHub',
     'theme.change': 'Cambiar tema',
   },
-} as const;
+} as const
