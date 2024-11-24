@@ -1,49 +1,28 @@
 ---
-import SectionTitle from '../../components/SectionTitle.astro'
-import Text from '../../components/Text.astro'
-import Icon, { icon } from '../../components/Icon.astro'
-import { projects } from '../../projects.json'
-import Project from '../../components/Project.astro'
-import { languages } from '../../i18n/ui'
-import { getLangFromUrl, useTranslations } from '../../i18n/utils'
+import SectionTitle from '../components/SectionTitle.astro'
+import Text from '../components/Text.astro'
+import { projects } from '../projects.json'
+import Project from '../components/Project.astro'
+import { languages } from '../i18n/ui'
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import GithubIcon from './Icons/GithubIcon.astro'
+import LinkedInIcon from './Icons/LinkedInIcon.astro'
+import MailIcon from './Icons/MailIcon.astro'
+import SunIcon from './Icons/SunIcon.astro'
+import MoonIcon from './Icons/MoonIcon.astro'
 
-export function getStaticPaths() {
-  return Object.keys(languages).map(lang => ({ params: { lang } }))
-}
-
-const { lang } = Astro.params
+const { currentLocale } = Astro
 const t = useTranslations(getLangFromUrl(Astro.url))
-
-const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
-  {
-    name: 'GitHub',
-    url: 'https://github.com/mateo-14',
-    icon: 'github'
-  },
-  {
-    name: 'LinkedIn',
-    url: 'https://linkedin.com/in/mateo-ledesma',
-    icon: 'linkedin'
-  },
-  {
-    name: t('nav.contact'),
-    url: 'mailto:mateo.14.ledesma@gmail.com',
-    icon: 'mail'
-  }
-]
-
 
 ---
 
-<html lang={lang} class="scroll-smooth">
+<html lang={currentLocale} class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Mateo Ledesma - Full Stack Developer</title>
-
-    <script>import '../../main.js';</script>
+    <title>Mateo Ledesma - Software Developer</title>
   </head>
   <body class="dark:bg-customBlack dark:text-white text-neutral-900">
     <header class="container mx-auto py-2.5">
@@ -54,18 +33,36 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
         </div>
         <div class="flex gap-x-6">
           {
-            ExternalLinks.map(link => (
-              <a href={link.url} class="hover:scale-125 hover:transition" target="_blank" title={link.name}>
-                <Icon icon={link.icon} />
+              <a href="https://github.com/mateo-14" class="hover:scale-125 hover:transition" target="_blank" title="GitHub">
+                <GithubIcon/>
               </a>
-            ))
+                <a href="https://linkedin.com/in/mateo-ledesma" class="hover:scale-125 hover:transition" target="_blank" title="LinkedIn">
+                <LinkedInIcon/>
+              </a>
+                <a href="mailto:mateo.14.ledesma@gmail.com" class="hover:scale-125 hover:transition" title={t('nav.contact')}>
+                <MailIcon/>
+              </a>
+            
           }
-          <button id="toggle-theme" class="hover:scale-125 hover:transition relative w-6 h-6" title={t('theme.change')} type="button">
-            <Icon icon="sun" className="sun absolute top-0" />
-            <Icon icon="moon" className="moon absolute top-0" />
+          <button
+            id="toggle-theme"
+            class="hover:scale-125 hover:transition relative w-6 h-6"
+            title={t('theme.change')}
+            type="button"
+          >
+            <SunIcon className="sun absolute top-0" />
+            <MoonIcon className="moon absolute top-0" />
           </button>
-          <a class="font-bold" href={`/${Object.keys(languages).filter(_lang => _lang !== lang)[0]}`} title={t('lang.change')}>
-            {Object.keys(languages).filter(_lang => _lang !== lang)[0].toUpperCase()}
+          <a
+            class="font-bold"
+            href={`/${Object.keys(languages).filter((lang) => lang !== currentLocale)[0]}`}
+            title={t('lang.change')}
+          >
+            {
+              Object.keys(languages)
+                .filter((lang) => lang !== currentLocale)[0]
+                .toUpperCase()
+            }
           </a>
         </div>
       </div>
@@ -90,42 +87,33 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
         <Text>
           {t('about.cv')}
           {' '}
-          <a
-            class="font-bold dark:text-white underline"
-            href={t('resume-file')}
-          >{t('about.clickHere')}</a
-          >.
+          <a class="font-bold dark:text-white underline" href={t('resume-file')}>{t('about.clickHere')}</a>.
         </Text>
       </section>
 
       <section id="projects" class="scroll-m-5">
         <SectionTitle>{t('nav.projects')} 📂</SectionTitle>
         <div class="space-y-7">
-          {projects.map(project => <Project project={project} />)}
+          {projects.map((project) => <Project project={project} />)}
         </div>
       </section>
-
-      {
-        <section id="github">
-          <SectionTitle>
-            {t('github.repos')} <Icon icon="github" className='inline ml-2 mb-1.5'/>
-          </SectionTitle>
-          <ul class="space-y-5">
-          </ul>
-        </section>
-      }
     </main>
     <footer class="mt-14 py-8 flex justify-center items-center gap-x-5 text-lg">
-      {
-        ExternalLinks.map(link => (
-          <a class="hover:opacity-70 hover:transition" href={link.url} target="_blank">
-            {link.name}
-          </a>
-        ))
-        
-      }
-        <a class="hover:opacity-70 hover:transition" href={`/${Object.keys(languages).filter(_lang => _lang !== lang)[0]}`} title={t('lang.change')}>
-        {Object.entries(languages).filter(([code, _lang]) => code !== lang)[0][1]}
+      <a class="hover:opacity-70 hover:transition" href="https://github.com/mateo-14" target="_blank">
+        GitHub
+      </a>
+      <a class="hover:opacity-70 hover:transition" href="https://linkedin.com/in/mateo-ledesma" target="_blank">
+        LinkedIn
+      </a>
+      <a class="hover:opacity-70 hover:transition" href="mailto:mateo.14.ledesma@gmail.com">
+        {t('nav.contact')}
+      </a>
+      <a
+        class="hover:opacity-70 hover:transition"
+        href={`/${Object.keys(languages).filter((lang) => lang !== currentLocale)[0]}`}
+        title={t('lang.change')}
+      >
+        {Object.entries(languages).filter(([code, lang]) => code !== currentLocale)[0][1]}
       </a>
     </footer>
   </body>
@@ -209,8 +197,6 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
 </style>
 
 <script>
-  import type { GithubRepostory } from '../repos/index.json'
-
   const toggleThemeBtn = document.getElementById('toggle-theme')
   const sun = toggleThemeBtn?.querySelector('.sun')
   const moon = toggleThemeBtn?.querySelector('.moon')
@@ -243,48 +229,4 @@ const ExternalLinks: Array<{ name: string; url: string; icon: icon }> = [
       localStorage.setItem('theme', 'light')
     }
   })
-
-  const language = document.documentElement.lang
-
-  const githubRepoTemplate = `<h3 class="text-lg font-bold dark:text-white">
-      <a class="hover:underline"></a>  
-    </h3>
-    <p data-description></p>
-    <div class="text-sm mt-3 flex items-center">
-      <span class="mr-3 flex items-center gap-x-1.5" data-language>
-        <span class="h-2 w-2 block rounded-full"></span>
-      </span>
-      <span>
-        ${language === 'en' ? 'Updated' : 'Actualizado'}
-        <relative-time prefix="${language === 'en' ? 'on' : 'el'}">
-        </relative-time>
-      </span>
-    </div>`;
-
-  (async () => {
-    const reposList = document.querySelector('#github ul')
-    const res = await fetch('/repos.json')
-    const repos: GithubRepostory[] = await res.json()
-
-    const reposItems = repos.map(repo => {
-      const li = document.createElement('li')
-      li.classList.add('px-5', 'py-4', 'dark:bg-white/5', 'bg-black/5', 'rounded-lg', 'shadow-md')
-      li.innerHTML = githubRepoTemplate
-      li.querySelector('a').href = repo.html_url
-      li.querySelector('a').textContent = repo.name
-      li.querySelector('[data-description]').textContent = repo.description
-      li.querySelector('[data-language] span').style.backgroundColor = repo.color
-      li.querySelector('[data-language]')?.append(repo.language)
-      li.querySelector('relative-time').setAttribute('datetime', repo.pushed_at)
-      li.querySelector('relative-time').innerText = new Date(repo.pushed_at).toLocaleString()
-      return li
-    })
-
-    if (!repos?.length) {
-      reposList?.parentElement?.remove()
-    }
-
-    reposList?.append(...reposItems)
-  })()
-
 </script>
