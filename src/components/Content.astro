@@ -12,7 +12,7 @@ import SunIcon from './Icons/SunIcon.astro'
 import MoonIcon from './Icons/MoonIcon.astro'
 import { getRelativeLocaleUrl  } from 'astro:i18n'
 const { currentLocale } = Astro
-const t = useTranslations(getLangFromUrl(Astro.url))
+const t = useTranslations((currentLocale === 'en' || currentLocale === 'es') ? currentLocale : 'es')
 
 ---
 
