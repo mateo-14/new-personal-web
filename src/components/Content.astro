@@ -10,7 +10,7 @@ import LinkedInIcon from './Icons/LinkedInIcon.astro'
 import MailIcon from './Icons/MailIcon.astro'
 import SunIcon from './Icons/SunIcon.astro'
 import MoonIcon from './Icons/MoonIcon.astro'
-
+import { getRelativeLocaleUrl  } from 'astro:i18n'
 const { currentLocale } = Astro
 const t = useTranslations(getLangFromUrl(Astro.url))
 
@@ -24,7 +24,9 @@ const t = useTranslations(getLangFromUrl(Astro.url))
     <meta name="generator" content={Astro.generator} />
     <title>Mateo Ledesma - Software Developer</title>
   </head>
-  <body class="dark:bg-customBlack dark:text-white text-neutral-900">
+  <body class="dark:text-white text-neutral-900 relative dark:bg-neutral-950 bg-white">
+    <div class="hidden dark:block absolute top-0 z-[-2] h-screen w-full bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+    <div class="dark:hidden absolute top-0 z-[-2] h-screen w-full bg-white bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)]"></div>
     <header class="container mx-auto py-2.5">
       <div class="flex justify-between items-center flex-wrap gap-y-4 gap-x-4">
         <div>
@@ -55,7 +57,7 @@ const t = useTranslations(getLangFromUrl(Astro.url))
           </button>
           <a
             class="font-bold"
-            href={`/${Object.keys(languages).filter((lang) => lang !== currentLocale)[0]}`}
+            href={getRelativeLocaleUrl(Object.keys(languages).filter((lang) => lang !== currentLocale)[0])}
             title={t('lang.change')}
           >
             {
@@ -110,7 +112,7 @@ const t = useTranslations(getLangFromUrl(Astro.url))
       </a>
       <a
         class="hover:opacity-70 hover:transition"
-        href={`/${Object.keys(languages).filter((lang) => lang !== currentLocale)[0]}`}
+        href={getRelativeLocaleUrl(Object.keys(languages).filter((lang) => lang !== currentLocale)[0])}
         title={t('lang.change')}
       >
         {Object.entries(languages).filter(([code, lang]) => code !== currentLocale)[0][1]}
