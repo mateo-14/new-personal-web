@@ -27,11 +27,8 @@ export const ui = {
     'experience.1.period': '2021 - 2022',
     'experience.1.description': 'During this period, I worked on the development and customization of WordPress plugins, solving specific problems and adapting them to the clients\' needs. Additionally, I designed and developed landing pages, helping small businesses improve their online presence.',
     'experience.2.position': 'Frontend Developer - GreenFlame',
-    'experience.2.period': '2022 - 2024',
-    'experience.2.description': 'I was in charge of maintaining and developing websites dedicated to car rental, using a stack composed of Tailwind, JavaScript, Laravel, Livewire, and PHP. I collaborated in the continuous improvement of the user interface and customer experience, optimizing performance and ensuring the quality of the platforms.',
-    'experience.3.position': 'Frontend Tech Lead - GreenFlame',
-    'experience.3.period': 'Currently',
-    'experience.3.description': 'I am currently the technical lead on the team, where I continue to work with Tailwind, JavaScript, Laravel, Livewire, and PHP in the maintenance and development of existing projects. Additionally, I lead a new project developed from scratch with React and Next.js, implementing best practices, modernizing the technological architecture, and coordinating the team to achieve established objectives.',
+    'experience.2.period': '2022 - Currently',
+    'experience.2.description': 'I specialize in the development and maintenance of car rental websites. I work with a stack consisting of React, Next.js, JavaScript, and Tailwind CSS for new developments, while maintaining and optimizing existing projects built with Laravel, Livewire, JavaScript, Tailwind, and PHP. My focus is on enhancing user experience, optimizing performance, and ensuring platform quality.',
   },
   es: {
     'nav.about': 'Sobre mí',
@@ -54,11 +51,7 @@ export const ui = {
     'experience.1.period': '2021 - 2022',
     'experience.1.description': 'Durante este período trabajé en el desarrollo y personalización de plugins para WordPress, solucionando problemas específicos y adaptándolos a las necesidades de los clientes. Además, diseñé y desarrollé landing pages, ayudando a pequeños negocios a mejorar su presencia en línea.',
     'experience.2.position': 'Desarrollador Frontend - GreenFlame',
-    'experience.2.period': '2022 - 2024',
-    'experience.2.description': 'Me encargué del mantenimiento y desarrollo de sitios web dedicados a la renta de autos, utilizando un stack compuesto por Tailwind, JavaScript, Laravel, Livewire y PHP. Colaboré en la mejora continua de la interfaz de usuario y experiencia del cliente, optimizando el rendimiento y asegurando la calidad de las plataformas.',
-    'experience.3.position': 'Frontend Tech Lead - GreenFlame',
-    'experience.3.period': 'Actualmente',
-    'experience.3.description': 'Actualmente soy líder técnico en el equipo, donde continúo trabajando con Tailwind, JavaScript, Laravel, Livewire y PHP en el mantenimiento y desarrollo de proyectos existentes. Además, lidero un nuevo proyecto desarrollado desde cero con React y Next.js, implementando buenas prácticas, modernizando la arquitectura tecnológica y coordinando al equipo para alcanzar los objetivos establecidos.',
-    
+    'experience.2.period': '2022 - Actualmente',
+    'experience.2.description': 'Me dedico al desarrollo y mantenimiento de sitios web para la renta de autos. Trabajo con un stack compuesto por React, Next.js, JavaScript y Tailwind CSS en nuevos desarrollos, mientras mantengo y optimizo proyectos existentes basados en Laravel, Livewire, JavaScript, Tailwind y PHP. Mi enfoque está en mejorar la experiencia del usuario, optimizar el rendimiento y garantizar la calidad de las plataformas.',
   },
 } as const
